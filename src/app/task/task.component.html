@@ -1,0 +1,17 @@
+
+<div class="task container" >
+    <h2>To Do List </h2>
+    
+      <div *ngFor='let task of tasks;let i = index;'>
+          <p *ngFor='let task of tasks'></p>
+            {{task.id}} {{task.name.toUpperCase()}}   
+          <p *ngIf='task.showDescription'>
+          <app-task-detail  [task]="task" (isComplete)="completeTask($event,i)" ></app-task-detail> <br>
+          </p>
+          <br><button class='btn btn-secondary' (click)='toggleDetails(i)' >Description</button>
+          <app-task-detail *ngIf='task.showDescription' [task]='task'></app-task-detail>
+         
+      </div> 
+    
+</div> 
+
